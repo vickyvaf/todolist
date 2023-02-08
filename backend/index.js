@@ -1,6 +1,6 @@
+const { sequelize } = require("./src/models");
 const express = require("express");
 const cors = require("cors");
-const { sequelize } = require("./src/models");
 require("dotenv").config();
 
 const app = express();
@@ -23,12 +23,10 @@ app.use(userRoute);
 app.use(todoRoute);
 app.use(authRoute);
 
-// sequelize
-//   .authenticate()
-//   .then((res) => console.log("connected to database"))
-//   .catch((err) => console.log(`error: `, err));
-
-// sequelize.sync()
+sequelize
+  .sync()
+  .then(() => console.log("connected to database"))
+  .catch((err) => console.log("error:", err));
 
 app.listen(port, () => {
   console.log(`server running on port ${port}`);

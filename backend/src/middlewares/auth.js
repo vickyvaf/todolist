@@ -20,7 +20,7 @@ const auth = (req, res, next) => {
 
     next();
   } catch (error) {
-    return res.status(500).send(responseData(500, "Internal Server Error", error?.message, null));
+    return res.status(500).send(responseData(500, null, error?.message, null));
   }
 };
 

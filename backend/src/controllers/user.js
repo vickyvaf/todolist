@@ -16,7 +16,7 @@ const deleteUser = async (req, res) => {
     })
     return res.status(200).send(responseData(200, "USER SUCCESSFULLY DELETED", null, result));
   } catch (error) {
-    return res.status(500).send(responseData(500, null, error.message ?? "Internal Server Error", null));
+    return res.status(500).send(responseData(500, null, error?.message, null));
   }
 }
 

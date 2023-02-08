@@ -4,6 +4,6 @@ const { deleteUser } = require("../controllers/user");
 
 const route = express();
 
-route.get("/api/users", auth, deleteUser);
+route.delete("/api/users", auth, deleteUser);
 
 module.exports = route;
